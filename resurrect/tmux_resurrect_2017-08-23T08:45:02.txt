@@ -1,0 +1,4 @@
+pane	0	0	:~	1	:*	0	:/Users/Fred	1	zsh	:
+pane	0	0	:~	1	:*	1	:/Users/Fred	0	ssh	:ssh -A -v fred@115.28.223.194
+window	0	0	1	:*	4c26,158x21,0,0{79x21,0,0,0,78x21,80,0,8}
+state	0	
