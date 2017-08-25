@@ -21,8 +21,8 @@ else
 fi
 
 
-echo 'cp tmuxinator.zsh ~/tmuxinator.zsh'
-cp tmuxinator.zsh ~/tmuxinator.zsh
+echo 'cp .tmuxinator.zsh ~/.tmuxinator.zsh'
+cp .tmuxinator.zsh ~/.tmuxinator.zsh
 
 
 echo 'cp .tmux.conf ~/.tmux.conf'
@@ -42,18 +42,18 @@ then
         echo 'export EDITOR="vim"'     >> ~/.zshrc
     fi
 
-    grepResult=$(cat ~/.zshrc | grep '^source ~/tmuxinator.zsh')
+    grepResult=$(cat ~/.zshrc | grep '^source ~/.tmuxinator.zsh')
     echo ~/.zshrc $grepResult
     if [ ${#grepResult} == 0 ]
     then
-        echo 'source ~/tmuxinator.zsh' >> ~/.zshrc
+        echo 'source ~/.tmuxinator.zsh' >> ~/.zshrc
     fi
 
     echo $'cat ~/.zshrc | grep \'^export EDITOR="vim"\''
     cat ~/.zshrc | grep '^export EDITOR="vim"'
 
-    echo $'cat ~/.zshrc | grep \'^source ~/tmuxinator.zsh\''
-    cat ~/.zshrc | grep '^source ~/tmuxinator.zsh'
+    echo $'cat ~/.zshrc | grep \'^source ~/.tmuxinator.zsh\''
+    cat ~/.zshrc | grep '^source ~/.tmuxinator.zsh'
 
     /bin/zsh -c 'source ~/.zshrc'
 fi
