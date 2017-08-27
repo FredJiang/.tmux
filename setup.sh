@@ -16,8 +16,8 @@ if which tmuxinator > /dev/null
 then
     echo 'tmuxinator has installed'
 else
-    echo 'gem install tmuxinator'
-    gem install tmuxinator
+    echo 'sudo gem install tmuxinator'
+    sudo gem install tmuxinator
 fi
 
 
