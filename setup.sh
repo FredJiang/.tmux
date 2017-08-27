@@ -66,4 +66,27 @@ then
 fi
 
 
+if [ -e ~/.tmux.conf ]
+then
+    grepResult=$(cat ~/.tmux.conf | grep '^source .*\/powerline\/bindings\/tmux\/powerline\.conf')
+    echo ~/.tmux.conf $grepResult
+    if [ ${#grepResult} == 0 ]
+    then
+        if which pip > /dev/null
+        then
+            powerline_file=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/tmux/powerline.conf"}')
+            if [ -e $powerline_file ]
+            then
+                echo "source '$powerline_file'" >> ~/.tmux.conf
+            fi
+        fi
+    fi
+
+    echo $'cat ~/.tmux.conf | grep $'^source .*\/powerline\/bindings\/tmux\/powerline\.conf''
+    cat ~/.tmux.conf | grep '^source .*\/powerline\/bindings\/tmux\/powerline\.conf'
+fi
+
+
+
+
 
