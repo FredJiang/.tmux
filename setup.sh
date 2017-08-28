@@ -86,13 +86,14 @@ function install_gem {
     else
         if which apt-get > /dev/null
         then
-            echo 'todo'
+            echo 'sudo apt-get install -y rubygems'
+                  sudo apt-get install -y rubygems
         fi
 
         if which yum > /dev/null
         then
-            echo 'sudo yum install -y rubygems'
-                  sudo yum install -y rubygems
+            echo 'sudo yum     install -y rubygems'
+                  sudo yum     install -y rubygems
         fi
 
         if which brew > /dev/null
