@@ -12,6 +12,103 @@ echo 'git submodule update'
 git submodule update
 
 
+
+
+
+function install_tmux {
+    if which tmux > /dev/null
+    then
+        echo 'tmux has installed'
+    else
+        if which apt-get > /dev/null
+        then
+            echo 'sudo apt-get install -y tmux'
+                  sudo apt-get install -y tmux
+        fi
+
+        if which yum > /dev/null
+        then
+            echo 'sudo yum     install -y epel-release'
+                  sudo yum     install -y epel-release
+            echo 'sudo yum     install -y tmux'
+                  sudo yum     install -y tmux
+        fi
+
+        if which brew > /dev/null
+        then
+            echo 'brew         install   tmux'
+                  brew         install   tmux
+        fi
+    fi
+}
+
+install_tmux
+
+
+
+
+
+function install_ruby {
+    if which ruby > /dev/null
+    then
+        echo 'ruby has installed'
+    else
+        if which apt-get > /dev/null
+        then
+            echo 'sudo apt-get install -y ruby'
+                  sudo apt-get install -y ruby
+        fi
+
+        if which yum > /dev/null
+        then
+            echo 'sudo yum     install -y ruby'
+                  sudo yum     install -y ruby
+        fi
+
+        if which brew > /dev/null
+        then
+            echo 'brew         install    ruby'
+                  brew         install    ruby
+        fi
+    fi
+}
+
+install_ruby
+
+
+
+
+
+function install_gem {
+    if which gem > /dev/null
+    then
+        echo 'gem has installed'
+    else
+        if which apt-get > /dev/null
+        then
+            echo 'todo'
+        fi
+
+        if which yum > /dev/null
+        then
+            echo 'sudo yum install -y rubygems'
+                  sudo yum install -y rubygems
+        fi
+
+        if which brew > /dev/null
+        then
+            echo 'todo'
+        fi
+    fi
+}
+
+install_gem
+
+
+
+
+
+
 if which tmuxinator > /dev/null
 then
     echo 'tmuxinator has installed'
