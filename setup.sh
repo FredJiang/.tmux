@@ -114,8 +114,14 @@ if which tmuxinator > /dev/null
 then
     echo 'tmuxinator has installed'
 else
-    echo 'sudo gem install tmuxinator'
-    sudo gem install tmuxinator
+    if [ $(which ruby | grep -c "$HOME") -eq 0 ];
+    then
+        echo 'sudo gem install tmuxinator'
+        sudo gem install tmuxinator
+    else
+        echo 'gem install tmuxinator'
+        gem install tmuxinator
+    fi
 fi
 
 
@@ -125,6 +131,16 @@ cp .tmuxinator.zsh ~/.tmuxinator.zsh
 
 echo 'cp .tmux.conf ~/.tmux.conf'
 cp .tmux.conf ~/.tmux.conf
+
+tmuxVersion=$(tmux -V | cut -d" " -f2)
+echo tmuxVersion $tmuxVersion
+if [ "$(echo "$tmuxVersion <= 2.5" | bc -l)" -eq 1 ]
+then
+    grep -v plugin .tmux.conf > ~/.tmux.conf
+fi
+
+
+
 
 
 echo 'tmux source ~/.tmux.conf'
