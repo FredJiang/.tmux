@@ -1,15 +1,28 @@
 #! /bin/bash
 
-echo 'cd ~/.tmux'
-cd ~/.tmux
+
+
+echo 'git pull'
+git pull
+
 
 
 echo 'git submodule init'
 git submodule init
 
 
+
 echo 'git submodule update'
 git submodule update
+
+
+
+
+
+echo 'cd ~/.tmux'
+cd ~/.tmux
+
+
 
 
 
