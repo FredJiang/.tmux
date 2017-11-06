@@ -28,22 +28,22 @@ echoCo  cd ~/.tmux
 
 
 function install_tmux {
-    if which tmux > /dev/null; then
+    if which tmux > /dev/null 2>&1; then
         echoMe tmux has installed
     else
-        if which apt-get > /dev/null; then
+        if which apt-get > /dev/null 2>&1; then
             echoCo  sudo apt-get install -y tmux
                     sudo apt-get install -y tmux
         fi
 
-        if which yum > /dev/null; then
+        if which yum > /dev/null 2>&1; then
             echoCo  sudo yum     install -y epel-release
                     sudo yum     install -y epel-release
             echoCo  sudo yum     install -y tmux
                     sudo yum     install -y tmux
         fi
 
-        if which brew > /dev/null; then
+        if which brew > /dev/null 2>&1; then
             echoCo  brew         install    tmux
                     brew         install    tmux
         fi
@@ -55,20 +55,20 @@ install_tmux
 
 
 function install_ruby {
-    if which ruby > /dev/null; then
+    if which ruby > /dev/null 2>&1; then
         echoMe 'ruby has installed'
     else
-        if which apt-get > /dev/null; then
+        if which apt-get > /dev/null 2>&1; then
             echoCo  sudo apt-get install -y ruby
                     sudo apt-get install -y ruby
         fi
 
-        if which yum > /dev/null; then
+        if which yum > /dev/null 2>&1; then
             echoCo  sudo yum     install -y ruby
                     sudo yum     install -y ruby
         fi
 
-        if which brew > /dev/null; then
+        if which brew > /dev/null 2>&1; then
             echoCo  brew         install    ruby
                     brew         install    ruby
         fi
@@ -80,20 +80,20 @@ install_ruby
 
 
 function install_gem {
-    if which gem > /dev/null; then
+    if which gem > /dev/null 2>&1; then
         echoMe 'gem has installed'
     else
-        if which apt-get > /dev/null; then
+        if which apt-get > /dev/null 2>&1; then
             echoCo  sudo apt-get install -y rubygems
                     sudo apt-get install -y rubygems
         fi
 
-        if which yum > /dev/null; then
+        if which yum > /dev/null 2>&1; then
             echoCo  sudo yum     install -y rubygems
                     sudo yum     install -y rubygems
         fi
 
-        if which brew > /dev/null; then
+        if which brew > /dev/null 2>&1; then
             echoMe 'todo'
         fi
     fi
@@ -103,7 +103,7 @@ function install_gem {
 install_gem
 
 
-if which tmuxinator > /dev/null; then
+if which tmuxinator > /dev/null 2>&1; then
     echoMe 'tmuxinator has installed'
 else
     if [ $(which ruby | grep -c "$HOME") -eq 0 ]; then
@@ -172,7 +172,7 @@ if [ -e ~/.tmux.conf ]; then
     grepResult=$(cat ~/.tmux.conf | grep '^source .*\/powerline\/bindings\/tmux\/powerline\.conf')
     echoCo       cat ~/.tmux.conf | grep '^source .*\/powerline\/bindings\/tmux\/powerline\.conf'
     if [ ${#grepResult} == 0 ]; then
-        if which pip > /dev/null; then
+        if which pip > /dev/null 2>&1; then
             powerline_file=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/tmux/powerline.conf"}')
             if [ -e $powerline_file ]; then
                 echoCo echo "source  '$powerline_file'"  \>\> ~/.tmux.conf
